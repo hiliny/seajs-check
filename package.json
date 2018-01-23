@@ -1,0 +1,24 @@
+{
+  "name": "seajs-check",
+  "version": "1.0.0",
+  "description": "a tool for seajs syntax check and report",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiliny/seajs-check.git"
+  },
+  "keywords": [
+    "seajs",
+    "syntax",
+    "check\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Check"
+  ],
+  "author": "hiliny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hiliny/seajs-check/issues"
+  },
+  "homepage": "https://github.com/hiliny/seajs-check#readme"
+}
