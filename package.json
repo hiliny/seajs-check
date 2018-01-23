@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/hiliny/seajs-check/issues"
   },
-  "homepage": "https://github.com/hiliny/seajs-check#readme"
+  "homepage": "https://github.com/hiliny/seajs-check#readme",
+  "devDependencies": {
+    "express": "^4.16.2"
+  },
+  "dependencies": {
+    "jshint": "^2.9.5"
+  }
 }
