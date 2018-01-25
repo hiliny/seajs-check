@@ -9,8 +9,9 @@ let jsFiles = [];
 
 //示例检查当前目录下的所有js文件的语法错误
 traverseDirectory(__dirname);
-checkFileJsHint(jsFiles);
-
+//checkFileJsHint(jsFiles);
+var fileArray = syncGetSpecialFiles(__dirname,/\.js$/);
+console.log(fileArray);
 // 获取文件的内容字符串
 function getFileContent(strPath){
 	let codeString = '';
@@ -21,7 +22,7 @@ function getFileContent(strPath){
 	return codeString;
 }
 
-//遍历文件夹下所有文件,得到js文件
+//遍历(同步)文件夹下所有文件,得到js文件
 function traverseDirectory(directoryName){
 	let files = fs.readdirSync(directoryName,{encoding:'utf-8'});
 	files.forEach(function(filename, index) {
@@ -47,4 +48,25 @@ function checkFileJsHint(files){
 			console.log((++i)+":"+element +err.reason);
 		});
 	});
+}
+
+//获取指定的文件夹下特殊文件的示例
+function syncGetSpecialFiles(directoryName,typeRegexp){
+	let specialFiles = [];
+	function traverseDirectoryInner(directoryName){
+		let files = fs.readdirSync(directoryName,{encoding:'utf-8'});
+		files.forEach(function(filename, index) {
+			const fullPath = path.join(directoryName,filename);
+			const filedir = fs.statSync(fullPath);
+			const isFile = filedir.isFile(),isDirectory = filedir.isDirectory();
+			if(isFile && typeRegexp.test(filename)){
+				specialFiles[specialFiles.length] = fullPath;
+			}
+			if(isDirectory){
+				traverseDirectoryInner(fullPath);
+			}
+		});
+	}
+	traverseDirectoryInner(directoryName);
+	return specialFiles;
 }
