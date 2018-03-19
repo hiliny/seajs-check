@@ -26,6 +26,7 @@
     "express": "^4.16.2"
   },
   "dependencies": {
-    "jshint": "^2.9.5"
+    "jshint": "^2.9.5",
+    "nodemailer": "^4.6.3"
   }
 }
